@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ThuctapCS.Models.Order>
+@{
+    ViewBag.Title = "Phân Công Đơn Hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center my-4">Phân Công Đơn Hàng</h2>
+
+<form id="assignOrderForm" method="post" action="@Url.Action("AssignOrder", "Orders")" class="p-4 border rounded shadow-lg bg-light">
+    <div class="mb-3">
+        <label for="orderId" class="form-label">Chọn Đơn Hàng:</label>
+        <select id="orderId" name="orderId" class="form-select" onchange="showOrderDetails(this.value)">
+            <option value="">-- Chọn Đơn Hàng --</option>
+            @foreach (var order in Model)
+            {
+                <option value="@order.order_id">@order.receiver_name - @String.Format("{0:N0} VND", order.order_price)</option>
+            }
+        </select>
+        <div id="orderError" class="text-danger mt-2" style="display:none;"></div>
+    </div>
+
+    <div id="orderDetails" class="mb-4" style="display:none;">
+        <h3>Thông Tin Đơn Hàng:</h3>
+        <div class="border p-3 rounded bg-white">
+            <p><strong>Tên Người Nhận:</strong> <span id="receiverName"></span></p>
+            <p><strong>Địa Chỉ:</strong> <span id="receiverAddress"></span>, <span id="wardName"></span></p>
+            <p><strong>Số Điện Thoại:</strong> <span id="receiverPhone"></span></p>
+            <p><strong>Tổng Giá Trị:</strong> <span id="totalValue"></span></p>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="employeeId" class="form-label">Chọn Nhân Viên:</label>
+        <select id="employeeId" name="employeeId" class="form-select">
+            @foreach (var employee in ViewBag.Employees)
+            {
+                <option value="@employee.employee_id">@($"{employee.last_name} {employee.first_name}")</option>
+            }
+        </select>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary btn-sm" style="width: auto;">Phân Công</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('assignOrderForm').addEventListener('submit', function (event) {
+        var orderId = document.getElementById('orderId').value;
+        var orderError = document.getElementById('orderError');
+
+        // Reset thông báo lỗi
+        orderError.style.display = 'none';
+        orderError.innerText = '';
+
+        if (!orderId) {
+            event.preventDefault(); // Ngăn chặn gửi form
+            orderError.innerText = 'Hãy chọn đơn hàng!'; // Hiển thị thông báo lỗi
+            orderError.style.display = 'block'; // Hiện thông báo lỗi
+        }
+    });
+
+    function showOrderDetails(orderId) {
+        // Gửi yêu cầu AJAX để lấy thông tin chi tiết đơn hàng
+        if (orderId) {
+            fetch(`@Url.Action("GetOrderDetails", "Orders")?id=${orderId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("receiverName").innerText = data.receiver_name;
+                    document.getElementById("receiverAddress").innerText = data.receiver_street;
+                    document.getElementById("wardName").innerText = data.wardName;
+                    document.getElementById("receiverPhone").innerText = data.receiver_phone;
+                    document.getElementById("totalValue").innerText = data.totalValue;
+                    document.getElementById("orderDetails").style.display = "block";
+                });
+        } else {
+            document.getElementById("orderDetails").style.display = "none";
+        }
+    }
+</script>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .form-select {
+        transition: border-color 0.3s;
+    }
+
+        .form-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .btn-primary {
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+    h3 {
+        color: #007bff;
+    }
+
+    .border {
+        border: 1px solid #007bff;
+    }
+</style>
+    

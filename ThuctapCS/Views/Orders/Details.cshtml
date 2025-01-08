@@ -1,0 +1,79 @@
+﻿@model ThuctapCS.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-4">
+
+    <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-header text-center text-primary" style="font-weight: 500">
+            <h4>THÔNG TIN ĐƠN HÀNG</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4 text-start">Tên người gửi</dt>
+                <dd class="col-sm-8 text-center">
+                    @Html.DisplayFor(model => model.Customer.last_name) @Html.DisplayFor(model => model.Customer.first_name)
+                </dd>
+
+                <dt class="col-sm-4 text-start">Tên người nhận</dt>
+                <dd class="col-sm-8 text-center">@Html.DisplayFor(model => model.receiver_name)</dd>
+
+                <dt class="col-sm-4 text-start">Địa chỉ</dt>
+                <dd class="col-sm-8 text-center">
+                    @Html.DisplayFor(model => model.receiver_street),
+                    @Html.DisplayFor(model => model.Ward.ward_name)
+                </dd>
+
+                <dt class="col-sm-4 text-start">SĐT người nhận</dt>
+                <dd class="col-sm-8 text-center">
+                    @Html.DisplayFor(model => model.receiver_phone)
+                </dd>
+
+                <dt class="col-sm-4 text-start">Giá đơn hàng</dt>
+                <dd class="col-sm-8 text-center">
+                    @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VND", Model.order_price)
+                </dd>
+
+                <dt class="col-sm-4 text-start">Phí ship</dt>
+                <dd class="col-sm-8 text-center">
+                    @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VND", Model.shipping_fee)
+                </dd>
+
+                <dt class="col-sm-4 text-start">Ngày nhập kho</dt>
+                <dd class="col-sm-8 text-center">
+                    @(Model.warehouse_date.HasValue ? Model.warehouse_date.Value.ToString("dd/MM/yyyy") : string.Empty)
+                </dd>
+
+                <dt class="col-sm-4 text-start">Ngày giao hàng</dt>
+                <dd class="col-sm-8 text-center">
+                    @(Model.shipping_date.HasValue ? Model.shipping_date.Value.ToString("dd/MM/yyyy") : string.Empty)
+                </dd>
+                
+                <dt class="col-sm-4 text-start">Trạng thái</dt>
+                <dd class="col-sm-8 text-center">
+                    @Html.DisplayFor(model => model.status)
+                </dd>
+
+                <dt class="col-sm-4 text-start">Lí do trả hàng (nếu có)</dt>
+                <dd class="col-sm-8 text-center">
+                    @Html.DisplayFor(model => model.return_reason)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.order_id }, new { @class = "btn btn-primary me-2" }) |
+        @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>
+
+<style>
+    .card {
+        margin: 0 auto; /* Giúp card căn giữa */
+        max-width: 600px; /* Đặt độ rộng tối đa cho card */
+    }
+</style>

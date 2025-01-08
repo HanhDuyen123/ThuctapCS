@@ -1,0 +1,123 @@
+﻿@model ThuctapCS.Models.Order
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center text-primary" style="font-weight: 500">TẠO ĐƠN HÀNG</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-container">
+        <h4>Thông tin Đơn hàng</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                @Html.Label("Tên người gửi", htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownList("customer_id", (SelectList)ViewBag.customer_id, "Chọn khách hàng", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.customer_id, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.receiver_name, "Tên người nhận", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.receiver_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.receiver_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="row mb-3">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.receiver_street, "Địa chỉ", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.receiver_street, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.receiver_street, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.ward_id, "Phường/Xã", htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownList("ward_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ward_id, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.receiver_phone, "SĐT người nhận", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.receiver_phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.receiver_phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.order_price, "Giá đơn hàng (VNĐ)", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.order_price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.order_price, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.shipping_fee, "Phí ship (VNĐ)", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.shipping_fee, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.shipping_fee, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.warehouse_date, "Ngày nhập kho", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.warehouse_date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.warehouse_date, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.shipping_date, "Ngày giao hàng", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.shipping_date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.shipping_date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.status, "Trạng thái", htmlAttributes: new { @class = "form-label" })
+                @Html.DropDownList("status", new SelectList(new List<string> { "Processing", "Shipping", "Delivered", "Returned" }), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.return_reason, "Lí do trả hàng", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.return_reason, new { htmlAttributes = new { @class = "form-control", rows = 3 } })
+                @Html.ValidationMessageFor(model => model.return_reason, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group text-center">
+            <input type="submit" value="Tạo Đơn" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<div class="mt-3 text-center">
+    @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-secondary" })
+</div>
+
+<style>
+    .form-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+</style>

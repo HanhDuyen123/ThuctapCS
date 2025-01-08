@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link href="~/Content/styleTable.css" rel="stylesheet" type="text/css" />
+    <!-- Link Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            height: 100%;
+            margin: 0;
+            background-color: #f8f9fa;
+        }
+
+        .sidebar {
+            width: 250px; /* Tăng chiều rộng */
+            height: 100vh;
+            background-color: #2c5ea9;
+            color: white;
+            position: sticky; /* Để sidebar cuộn cùng trang */
+            top: 0; /* Giữ sidebar ở vị trí trên cùng */
+            overflow-y: auto;
+        }
+
+            .sidebar h5 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .sidebar a {
+                text-decoration: none;
+                color: white;
+                display: flex;
+                align-items: center;
+                padding: 10px 20px; /* Thêm khoảng cách ngang */
+                border-radius: 5px;
+            }
+
+                .sidebar a i {
+                    margin-right: 10px;
+                }
+
+                .sidebar a:hover {
+                    background-color: #1b4f91;
+                }
+
+        .user-info {
+            margin-top: 20px;
+            padding: 10px 20px; /* Thêm khoảng cách ngang */
+            background-color: #1b4f91;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+
+            .user-info i {
+                margin-right: 10px;
+            }
+
+        /*.content {
+            margin-left: 05px;*/ /* Tăng tương ứng với sidebar */
+        /*}*/
+    </style>
+</head>
+<body>
+    <!-- Navbar: Hiển thị trên màn hình nhỏ và ẩn trên màn hình lớn -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2c5ea9">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-3" style="font-size: 23px" href="@Url.Action("Index", "Home")">TRANG QUẢN LÝ</a>
+            <!-- Navbar Toggler Icon -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Menu -->
+            <div class="collapse navbar-collapse " id="navbarNav">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div id="success-message" class="alert alert-success text-center">
+                        @TempData["SuccessMessage"]
+                    </div>
+
+                    <script>
+                        $(document).ready(function () {
+                            // Hiện thông báo
+                            $('#success-message').addClass('show');
+
+                            // Ẩn thông báo sau 3 giây
+                            setTimeout(function () {
+                                $('#success-message').removeClass('show');
+                            }, 1500);
+                        });
+                    </script>
+                }
+
+                <ul class="navbar-nav ms-auto d-lg-none">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Employees_64130473")">
+                            <i class="fas fa-user-tie"></i> <span>Nhân viên</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Orders_64130473")">
+                            <i class="fa-brands fa-shopify"></i> <span>Đơn hàng</span>
+                        </a>
+                    </li>
+                    @if (Session["idUser"] != null)
+                    {
+                        <div class="user-info" style="margin-top: 20px; padding: 10px 7px; background-color: #1b4f91; border-radius: 5px; display: flex; align-items: center; color: white;">
+                            <i class="fas fa-user-circle"></i>
+                            <span>@Session["FullName"]!</span>
+                        </div>
+                        <a class="text-decoration-none" href="@Url.Action("Logout", "Login")">
+                            <i class="fas fa-sign-out-alt text-white ms-2"></i> <span class="text-white ms-1">Đăng xuất</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <a class="text-decoration-none" href="@Url.Action("Login", "Login")">
+                            <i class="fas fa-sign-in-alt"></i> <span>Đăng nhập</span>
+                        </a>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+        
+    <!-- Sidebar: Hiển thị trên màn hình lớn và ẩn trên màn hình nhỏ -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar d-none d-lg-block p-3">
+            @*<h5>TRANG QUẢN LÝ</h5>*@
+            <a href="@Url.Action("Index", "Employees")">
+                <i class="fas fa-user-tie"></i> <span>Nhân viên</span>
+            </a>
+            <a href="@Url.Action("Index", "Orders")">
+                <i class="fa-solid fa-truck-fast"></i> <span>Đơn hàng</span>
+            </a>
+            @if (Session["idUser"] != null)
+            {
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>@Session["FullName"]!</span>
+                </div>
+                <a href="@Url.Action("Logout", "Login")">
+                    <i class="fas fa-sign-out-alt"></i> <span>Đăng xuất</span>
+                </a>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Login")">
+                    <i class="fas fa-sign-in-alt"></i> <span>Đăng nhập</span>
+                </a>
+            }
+        </div>
+        <div class="content p-4 w-100">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

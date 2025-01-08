@@ -1,0 +1,394 @@
+﻿@model IEnumerable<ThuctapCS.Models.Order>
+
+@{
+    ViewBag.Title = "Assign Orders";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>PHÂN CÔNG ĐƠN HÀNG</h2>
+<style>
+    body {
+        background-color: #f8f9fa;
+        color: #2c3e50;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    h2 {
+        text-align: center;
+        color: #1a73e8;
+        margin-bottom: 35px;
+        font-size: 2.2rem;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #1a73e8;
+            border-radius: 2px;
+        }
+
+    /* Container cho bộ lọc */
+    .filter-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+    }
+
+        /* Style cho input và select */
+        .filter-container input,
+        .filter-container select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+            .filter-container input:focus,
+            .filter-container select:focus {
+                border-color: #1a73e8;
+                box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+                outline: none;
+            }
+
+        /* Style cho label */
+        .filter-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+    /* Nút bấm */
+    button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        button[type="submit"] {
+            background: #28a745;
+            color: white;
+        }
+
+            button[type="submit"]:hover {
+                background: #1557b0;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(26, 115, 232, 0.2);
+            }
+
+        button[type="button"] {
+            background: #dc3545;
+            color: #fff;
+            border: 1px solid #e1e4e8;
+        }
+
+            button[type="button"]:hover {
+                background: #e9ecef;
+                transform: translateY(-2px);
+            }
+
+    /* Bảng dữ liệu */
+    table {
+        width: 100%;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        margin: 30px 0;
+    }
+
+    th {
+        background: #1a73e8;
+        color: white;
+        padding: 15px 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+    }
+
+    td {
+        padding: 15px 20px;
+        border-bottom: 1px solid #e1e4e8;
+        color: #4a5568;
+    }
+
+    tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    /* Checkbox style */
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    /* Phần chọn nhân viên */
+    #employeeSelect {
+        width: auto;
+        min-width: 200px;
+        margin: 20px 0;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #e1e4e8;
+    }
+
+    /* Nút phân công */
+    #assignButton {
+        background: #34d399;
+        color: white;
+        padding: 12px 30px;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+
+        #assignButton:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
+        }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        body {
+            padding: 15px;
+        }
+
+        .filter-container {
+            grid-template-columns: 1fr;
+            padding: 15px;
+        }
+
+        table {
+            display: block;
+            overflow-x: auto;
+        }
+
+        th, td {
+            padding: 12px 15px;
+        }
+
+        button {
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+
+    /* Animation cho các phần tử khi tải trang */
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .filter-container, table, #employeeSelect, #assignButton {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+        .pagination a {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: 1px solid #e1e4e8;
+            border-radius: 8px;
+            color: #1a73e8;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+            .pagination a:hover {
+                background-color: #f1f1f1;
+            }
+
+        .pagination strong {
+            padding: 10px 15px;
+            margin: 0 5px;
+            background-color: #1a73e8;
+            color: white;
+            border-radius: 8px;
+        }
+</style>
+@using (Html.BeginForm("Assign", "OrderAssignment", FormMethod.Get))
+{
+    <div class="filter-container">
+        <div class="filter-group date-input">
+            <label for="minDate">Ngày bắt đầu:</label>
+            <input type="date" id="minDate" name="minDate" value="@Request.QueryString["minDate"]" />
+        </div>
+
+        <div class="filter-group date-input">
+            <label for="maxDate">Ngày kết thúc:</label>
+            <input type="date" id="maxDate" name="maxDate" value="@Request.QueryString["maxDate"]" />
+        </div>
+
+        <div class="filter-group number-input">
+            <label for="pageSize">Số lượng đơn hàng:</label>
+            <input type="number" id="pageSize" name="pageSize" value="@Request.QueryString["pageSize"]" min="1" />
+        </div>
+
+        <div class="filter-group">
+            <label for="ward_name">Chọn phường/xã:</label>
+            <select id="ward_name" name="district" style="width: 100%">
+                <option value="">-- Chọn phường/xã --</option>
+                @foreach (var ward in Model.Select(o => o.Ward.ward_name).Distinct())
+                {
+                    <option value="@ward" @(Request.QueryString["district"] == ward ? "selected" : "")>
+                        @ward
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="filter-buttons">
+            <button type="submit">
+                <i class="fas fa-filter"></i> Search
+            </button>
+            <button type="button" onclick="resetFilters()">
+                <i class="fas fa-undo"></i> Delete
+            </button>
+        </div>
+    </div>
+    <div class="d-flex">
+        <div class="mx-3">
+            <label for="employeeSelect">Chọn nhân viên:</label>
+            <select id="employeeSelect" name="employeeId">
+                @foreach (var employee in ViewBag.Employees)
+                {
+                    <option value="@employee.employee_id">@($"{employee.last_name} {employee.first_name}")</option>
+                }
+            </select>
+        </div>
+        <button type="button" id="assignButton">Phân công</button>
+    </div>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="selectAll" /></th>
+            <th>Mã đơn hàng</th>
+            <th>Ngày nhập kho</th>
+            <th>Trạng thái</th>
+            <th>Phường/Xã</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td><input type="checkbox" class="orderCheckbox" value="@order.order_id" /></td>
+                <td>@order.order_id</td>
+                <td>@(order.warehouse_date.HasValue ? order.warehouse_date.Value.ToShortDateString() : "Không có dữ liệu")</td>
+                <td>@order.status</td>
+                <td>@order.Ward.ward_name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pagination">
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a href="@Url.Action("Assign", new { page = ViewBag.CurrentPage - 1, pageSize = ViewBag.PageSize, minDate = Request.QueryString["minDate"], maxDate = Request.QueryString["maxDate"], district = Request.QueryString["district"] })">« Trang trước</a>
+    }
+
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        if (i == ViewBag.CurrentPage)
+        {
+            <strong>@i</strong> <!-- Trang hiện tại -->
+        }
+        else
+        {
+            <a href="@Url.Action("Assign", new { page = i, pageSize = ViewBag.PageSize, minDate = Request.QueryString["minDate"], maxDate = Request.QueryString["maxDate"], district = Request.QueryString["district"] })">@i</a>
+        }
+    }
+
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a href="@Url.Action("Assign", new { page = ViewBag.CurrentPage + 1, pageSize = ViewBag.PageSize, minDate = Request.QueryString["minDate"], maxDate = Request.QueryString["maxDate"], district = Request.QueryString["district"] })">Trang tiếp theo »</a>
+    }
+</div>
+
+
+@section Scripts {
+    <script>
+        document.getElementById('selectAll').onclick = function () {
+            const checkboxes = document.querySelectorAll('.orderCheckbox');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        }
+
+        document.getElementById('assignButton').onclick = function () {
+            const selectedOrders = Array.from(document.querySelectorAll('.orderCheckbox:checked')).map(cb => cb.value);
+            const employeeId = document.getElementById('employeeSelect').value;
+
+            if (selectedOrders.length === 0) {
+                alert("Vui lòng chọn ít nhất một đơn hàng.");
+                return;
+            }
+
+            if (employeeId === "") {
+                alert("Vui lòng chọn nhân viên.");
+                return;
+            }
+
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '@Url.Action("AssignOrders", "OrderAssignment")';
+
+            selectedOrders.forEach(orderId => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'selectedOrders';
+                input.value = orderId;
+                form.appendChild(input);
+            });
+
+            const employeeInput = document.createElement('input');
+            employeeInput.type = 'hidden';
+            employeeInput.name = 'employeeId';
+            employeeInput.value = employeeId;
+            form.appendChild(employeeInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+        function resetFilters() {
+            const url = '@Url.Action("Assign", "OrderAssignment")'; // Đường dẫn tới hành động hiện tại
+            window.location.href = url; // Chuyển hướng tới trang hiện tại
+        }
+    </script>
+}

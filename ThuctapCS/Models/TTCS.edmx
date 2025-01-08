@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ThucTapCSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_of_birth" Type="datetime" />
+          <Property Name="gender" Type="nvarchar" MaxLength="3" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="registration_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_of_birth" Type="datetime" />
+          <Property Name="gender" Type="nvarchar" MaxLength="3" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="15" />
+          <Property Name="address" Type="nvarchar" MaxLength="255" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="hire_date" Type="datetime" />
+          <Property Name="salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_id" Type="bigint" Nullable="false" />
+          <Property Name="receiver_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="receiver_street" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ward_id" Type="bigint" />
+          <Property Name="receiver_phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="order_price" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+          <Property Name="shipping_fee" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+          <Property Name="warehouse_date" Type="datetime" />
+          <Property Name="shipping_date" Type="datetime" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" />
+          <Property Name="return_reason" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="OrderAssignment">
+          <Key>
+            <PropertyRef Name="assignment_id" />
+          </Key>
+          <Property Name="assignment_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_id" Type="bigint" Nullable="false" />
+          <Property Name="order_id" Type="bigint" Nullable="false" />
+          <Property Name="assigned_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="ward_id" />
+          </Key>
+          <Property Name="ward_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ward_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="district_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="province_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Order__customer___46E78A0C">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__ward_id__47DBAE45">
+          <End Role="Ward" Type="Self.Ward" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ward">
+              <PropertyRef Name="ward_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ward_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderAssi__emplo__4BAC3F29">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="OrderAssignment">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderAssi__order__4CA06362">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="OrderAssignment">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ThucTapCSModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderAssignment" EntityType="Self.OrderAssignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Order__customer___46E78A0C" Association="Self.FK__Order__customer___46E78A0C">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__ward_id__47DBAE45" Association="Self.FK__Order__ward_id__47DBAE45">
+            <End Role="Ward" EntitySet="Ward" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderAssi__emplo__4BAC3F29" Association="Self.FK__OrderAssi__emplo__4BAC3F29">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="OrderAssignment" EntitySet="OrderAssignment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderAssi__order__4CA06362" Association="Self.FK__OrderAssi__order__4CA06362">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderAssignment" EntitySet="OrderAssignment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ThucTapCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_of_birth" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="registration_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__customer___46E78A0C" FromRole="Customer" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date_of_birth" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="role_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="hire_date" Type="DateTime" Precision="3" />
+          <Property Name="salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="OrderAssignments" Relationship="Self.FK__OrderAssi__emplo__4BAC3F29" FromRole="Employee" ToRole="OrderAssignment" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="Int64" Nullable="false" />
+          <Property Name="receiver_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="receiver_street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ward_id" Type="Int64" />
+          <Property Name="receiver_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="order_price" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
+          <Property Name="shipping_fee" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
+          <Property Name="warehouse_date" Type="DateTime" Precision="3" />
+          <Property Name="shipping_date" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="return_reason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Order__customer___46E78A0C" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Ward" Relationship="Self.FK__Order__ward_id__47DBAE45" FromRole="Order" ToRole="Ward" />
+          <NavigationProperty Name="OrderAssignments" Relationship="Self.FK__OrderAssi__order__4CA06362" FromRole="Order" ToRole="OrderAssignment" />
+        </EntityType>
+        <EntityType Name="OrderAssignment">
+          <Key>
+            <PropertyRef Name="assignment_id" />
+          </Key>
+          <Property Name="assignment_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employee_id" Type="Int64" Nullable="false" />
+          <Property Name="order_id" Type="Int64" Nullable="false" />
+          <Property Name="assigned_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__OrderAssi__emplo__4BAC3F29" FromRole="OrderAssignment" ToRole="Employee" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__OrderAssi__order__4CA06362" FromRole="OrderAssignment" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="ward_id" />
+          </Key>
+          <Property Name="ward_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ward_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="district_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="province_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__ward_id__47DBAE45" FromRole="Ward" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK__Order__customer___46E78A0C">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderAssi__emplo__4BAC3F29">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="OrderAssignment">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order__ward_id__47DBAE45">
+          <End Role="Ward" Type="Self.Ward" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ward">
+              <PropertyRef Name="ward_id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ward_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderAssi__order__4CA06362">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="order_id" />
+            </Principal>
+            <Dependent Role="OrderAssignment">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ThucTapCSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderAssignments" EntityType="Self.OrderAssignment" />
+          <EntitySet Name="Wards" EntityType="Self.Ward" />
+          <AssociationSet Name="FK__Order__customer___46E78A0C" Association="Self.FK__Order__customer___46E78A0C">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderAssi__emplo__4BAC3F29" Association="Self.FK__OrderAssi__emplo__4BAC3F29">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="OrderAssignment" EntitySet="OrderAssignments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__ward_id__47DBAE45" Association="Self.FK__Order__ward_id__47DBAE45">
+            <End Role="Ward" EntitySet="Wards" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderAssi__order__4CA06362" Association="Self.FK__OrderAssi__order__4CA06362">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderAssignment" EntitySet="OrderAssignments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ThucTapCSModelStoreContainer" CdmEntityContainer="ThucTapCSEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ThucTapCSModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="registration_date" ColumnName="registration_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="ThucTapCSModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="hire_date" ColumnName="hire_date" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ThucTapCSModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="receiver_name" ColumnName="receiver_name" />
+                <ScalarProperty Name="receiver_street" ColumnName="receiver_street" />
+                <ScalarProperty Name="ward_id" ColumnName="ward_id" />
+                <ScalarProperty Name="receiver_phone" ColumnName="receiver_phone" />
+                <ScalarProperty Name="order_price" ColumnName="order_price" />
+                <ScalarProperty Name="shipping_fee" ColumnName="shipping_fee" />
+                <ScalarProperty Name="warehouse_date" ColumnName="warehouse_date" />
+                <ScalarProperty Name="shipping_date" ColumnName="shipping_date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="return_reason" ColumnName="return_reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderAssignments">
+            <EntityTypeMapping TypeName="ThucTapCSModel.OrderAssignment">
+              <MappingFragment StoreEntitySet="OrderAssignment">
+                <ScalarProperty Name="assignment_id" ColumnName="assignment_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="assigned_date" ColumnName="assigned_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="ThucTapCSModel.Ward">
+              <MappingFragment StoreEntitySet="Ward">
+                <ScalarProperty Name="ward_id" ColumnName="ward_id" />
+                <ScalarProperty Name="ward_name" ColumnName="ward_name" />
+                <ScalarProperty Name="district_name" ColumnName="district_name" />
+                <ScalarProperty Name="province_name" ColumnName="province_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

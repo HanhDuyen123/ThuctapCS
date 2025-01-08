@@ -1,0 +1,117 @@
+﻿@model ThuctapCS.Models.Order
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">CHỈNH SỬA ĐƠN HÀNG</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card mx-auto" style="max-width: 800px;">
+            <!-- Tăng độ rộng của card -->
+            <div class="card-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.order_id)
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.customer_id, "Khách hàng", htmlAttributes: new { @class = "form-label" })
+                        @Html.DropDownList("customer_id", ViewBag.customer_id as SelectList, htmlAttributes: new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.customer_id, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.receiver_name, "Tên người nhận", htmlAttributes: new { @class = "form-label" })
+                        @Html.EditorFor(model => model.receiver_name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.receiver_name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.receiver_street, "Địa chỉ", htmlAttributes: new { @class = "form-label" })
+                    @Html.EditorFor(model => model.receiver_street, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.receiver_street, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.ward_id, "Khu vực", htmlAttributes: new { @class = "form-label" })
+                        @Html.DropDownList("ward_id", null, htmlAttributes: new { @class = "form-select" })
+                        @Html.ValidationMessageFor(model => model.ward_id, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.receiver_phone, "SĐT người nhận", htmlAttributes: new { @class = "form-label" })
+                        @Html.EditorFor(model => model.receiver_phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.receiver_phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.order_price, "Giá đơn hàng (VNĐ)", htmlAttributes: new { @class = "form-label" })
+                        @Html.EditorFor(model => model.order_price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập giá" } })
+                        @Html.ValidationMessageFor(model => model.order_price, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.shipping_fee, "Phí ship (VNĐ)", htmlAttributes: new { @class = "form-label" })
+                        @Html.EditorFor(model => model.shipping_fee, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nhập phí" } })
+                        @Html.ValidationMessageFor(model => model.shipping_fee, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.warehouse_date, "Ngày nhập kho", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.warehouse_date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(model => model.warehouse_date, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => model.shipping_date, "Ngày giao hàng", htmlAttributes: new { @class = "form-label" })
+                        @Html.TextBoxFor(model => model.shipping_date, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                        @Html.ValidationMessageFor(model => model.shipping_date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.status, "Trạng thái", htmlAttributes: new { @class = "form-label" })
+                    @Html.DropDownListFor(model => model.status, new SelectList(new[]
+                    {
+                        new { Value = "Processing", Text = "Processing" },
+                        new { Value = "Shipping", Text = "Shipping" },
+                        new { Value = "Delivered", Text = "Delivered" },
+                        new { Value = "Returned", Text = "Returned" }
+                    }, "Value", "Text", Model.status), "Chọn trạng thái", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="mb-3">
+                    @Html.LabelFor(model => model.return_reason, "Lí do trả hàng", htmlAttributes: new { @class = "form-label" })
+                    @Html.EditorFor(model => model.return_reason, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.return_reason, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Lưu" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="text-center mt-4">
+        @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>
+
+<style>
+    .card {
+        margin: 0 auto; /* Giúp card căn giữa */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Thêm bóng cho card */
+    }
+</style>

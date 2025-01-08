@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThucTapCSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="date_of_birth" Type="datetime" />
+    <Property Name="gender" Type="nvarchar" MaxLength="3" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="registration_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="date_of_birth" Type="datetime" />
+    <Property Name="gender" Type="nvarchar" MaxLength="3" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone" Type="nvarchar" MaxLength="15" />
+    <Property Name="address" Type="nvarchar" MaxLength="255" />
+    <Property Name="role_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="hire_date" Type="datetime" />
+    <Property Name="salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customer_id" Type="bigint" Nullable="false" />
+    <Property Name="receiver_name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="receiver_street" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ward_id" Type="bigint" />
+    <Property Name="receiver_phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="order_price" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="shipping_fee" Type="decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="warehouse_date" Type="datetime" />
+    <Property Name="shipping_date" Type="datetime" />
+    <Property Name="status" Type="nvarchar" MaxLength="20" />
+    <Property Name="return_reason" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="OrderAssignment">
+    <Key>
+      <PropertyRef Name="assignment_id" />
+    </Key>
+    <Property Name="assignment_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="employee_id" Type="bigint" Nullable="false" />
+    <Property Name="order_id" Type="bigint" Nullable="false" />
+    <Property Name="assigned_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="ward_id" />
+    </Key>
+    <Property Name="ward_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ward_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="district_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="province_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Order__customer___46E78A0C">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__ward_id__47DBAE45">
+    <End Role="Ward" Type="Self.Ward" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ward">
+        <PropertyRef Name="ward_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ward_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderAssi__emplo__4BAC3F29">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="employee_id" />
+      </Principal>
+      <Dependent Role="OrderAssignment">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderAssi__order__4CA06362">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="OrderAssignment">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThucTapCSModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderAssignment" EntityType="Self.OrderAssignment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Order__customer___46E78A0C" Association="Self.FK__Order__customer___46E78A0C">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__ward_id__47DBAE45" Association="Self.FK__Order__ward_id__47DBAE45">
+      <End Role="Ward" EntitySet="Ward" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderAssi__emplo__4BAC3F29" Association="Self.FK__OrderAssi__emplo__4BAC3F29">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="OrderAssignment" EntitySet="OrderAssignment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderAssi__order__4CA06362" Association="Self.FK__OrderAssi__order__4CA06362">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderAssignment" EntitySet="OrderAssignment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

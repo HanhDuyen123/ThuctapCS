@@ -1,0 +1,112 @@
+﻿.body-table {
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.table-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.table-header {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 12px 12px 0 0;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.table {
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+}
+
+    .table th {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        color: #bbb;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+@media (max-width: 768px) {
+    .table-container {
+        padding: 10px;
+    }
+
+    .table th, .table td {
+        font-size: 0.8rem;
+    }
+
+        .table td img {
+            width: 30px;
+            height: 30px;
+        }
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+    .pagination button {
+        padding: 0;
+        background-color: #659ef5;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .pagination button:hover {
+            background-color: #4e4cc7;
+            color: #fff; /* Màu chữ khi hover */
+        }
+
+    .pagination a {
+        text-decoration: none; /* Bỏ gạch chân */
+        color: #007bff; /* Màu chữ */
+        display: block; /* Chiếm toàn bộ nút */
+    }
+
+    .pagination .active {
+        background-color: #222084;
+        font-weight: bold;
+        cursor: default;
+    }
+
+    .pagination .disabled {
+        color: #ccc; /* Màu chữ cho nút không khả dụng */
+        background-color: #bbb;
+        pointer-events: none; /* Vô hiệu hóa sự kiện click */
+    }
+
+    .pagination .prev,
+    .pagination .next {
+        padding: 0px 6px;
+        font-weight: bold; /* Đậm chữ cho nút trước và sau */
+    }
+
+        .pagination .prev:hover,
+        .pagination .next:hover {
+            background-color: #0056b3; /* Màu nền khi hover */
+            color: #fff; /* Màu chữ khi hover */
+        }
+
+.action a {
+    text-decoration: none;
+}

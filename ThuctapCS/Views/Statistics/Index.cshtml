@@ -1,0 +1,301 @@
+﻿@{
+    ViewBag.Title = "Thống kê";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Header Section -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Bảng điều khiển thống kê</h1>
+        <div class="d-flex">
+            <select id="employeeDropdown" class="form-control mr-2">
+                <option value="">Chọn nhân viên</option>
+            </select>
+            <input type="date" id="startDate" class="form-control mr-2">
+            <input type="date" id="endDate" class="form-control mr-2">
+            <button id="applyFilter" class="btn btn-primary">
+                <i class="fas fa-filter fa-sm"></i> Lọc
+            </button>
+        </div>
+    </div>
+
+    <!-- Cards Row -->
+    <div class="row">
+        <!-- Total Orders Card -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Tổng đơn hàng
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalOrders">0</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Card -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Doanh thu
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="totalRevenue">0đ</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processing Orders Card -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Đơn đang xử lý
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="processingOrders">0</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Returned Orders Card -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Đơn hoàn trả
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="returnedOrders">0</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-undo fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Section -->
+    <div id="resultSection" class="mt-4">
+        <h5 class="font-weight-bold">Kết quả thống kê đơn hàng theo nhân viên</h5>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <p id="assignedOrders">Số đơn đã được phân công: <span class="font-weight-bold">0</span></p>
+                <p id="deliveredOrders">Số đơn đã giao: <span class="font-weight-bold">0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row">
+        <!-- Order Status Chart -->
+        <div class="col-xl-6 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Trạng thái đơn hàng</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="orderStatusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- District Orders Chart -->
+        <div class="col-xl-6 col-lg-6">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Tổng số đơn hàng theo từng xã</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="districtOrderChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        $(document).ready(function () {
+            let charts = {};
+            const chartColors = [
+                'rgba(78, 115, 223, 0.8)',
+                'rgba(28, 200, 138, 0.8)',
+                'rgba(54, 185, 204, 0.8)',
+                'rgba(246, 194, 62, 0.8)',
+                'rgba(231, 74, 59, 0.8)',
+                'rgba(133, 135, 150, 0.8)'
+            ];
+
+            // Tải danh sách nhân viên khi tải trang
+            $.get('/Statistics/GetEmployeesByRole', { roleName: 'Nhân viên' }, function (data) {
+                var $dropdown = $('#employeeDropdown');
+                $.each(data, function (index, employee) {
+                    $dropdown.append($('<option>', {
+                        value: employee.employee_id,
+                        text: employee.FullName
+                    }));
+                });
+            });
+
+            $('#applyFilter').click(function () {
+                const employeeId = $('#employeeDropdown').val();
+                const startDate = $('#startDate').val();
+                const endDate = $('#endDate').val();
+
+                if (!employeeId || !startDate || !endDate) {
+                    alert("Vui lòng chọn nhân viên và nhập khoảng thời gian.");
+                    return;
+                }
+
+                // Gọi phương thức thống kê cho nhân viên
+                $.get('/Statistics/GetEmployeeOrderStats', { employeeId, startDate, endDate }, function (result) {
+                    if (result && result.AssignedCount !== undefined && result.DeliveredCount !== undefined) {
+                        $('#assignedOrders').html(`Số đơn đã được phân công: <span class="font-weight-bold">${result.AssignedCount}</span>`);
+                        $('#deliveredOrders').html(`Số đơn đã giao: <span class="font-weight-bold">${result.DeliveredCount}</span>`);
+                    } else {
+                        alert("Không có dữ liệu thống kê.");
+                    }
+                }).fail(function () {
+                    alert("Có lỗi xảy ra khi lấy dữ liệu. Vui lòng thử lại sau.");
+                });
+
+                // Cập nhật biểu đồ
+                updateAllCharts(startDate, endDate);
+            });
+
+            function updateAllCharts(startDate, endDate) {
+                updateOrderStatusChart(startDate, endDate);
+                updateDistrictOrderChart(startDate, endDate);
+                updateRevenue(startDate, endDate);
+            }
+
+            // Cập nhật biểu đồ trạng thái đơn hàng
+            function updateOrderStatusChart(startDate, endDate) {
+                $.get('/Statistics/GetOrderStatusStats', { startDate, endDate }, function (data) {
+                    if (charts.orderStatus) {
+                        charts.orderStatus.destroy();
+                    }
+
+                    const ctx = document.getElementById('orderStatusChart').getContext('2d');
+                    charts.orderStatus = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: data.map(x => x.Status),
+                            datasets: [{
+                                label: 'Số lượng đơn hàng',
+                                data: data.map(x => x.OrderCount),
+                                backgroundColor: chartColors,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Phân bố đơn hàng theo trạng thái'
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+
+                    const totalOrders = data.reduce((sum, item) => sum + item.OrderCount, 0);
+                    const processingOrders = data.find(x => x.Status === 'Processing')?.OrderCount || 0;
+                    const returnedOrders = data.find(x => x.Status === 'Returned')?.OrderCount || 0;
+
+                    $('#totalOrders').text(totalOrders);
+                    $('#processingOrders').text(processingOrders);
+                    $('#returnedOrders').text(returnedOrders);
+                });
+            }
+
+            // Cập nhật biểu đồ theo phường/xã
+            function updateDistrictOrderChart(startDate, endDate) {
+                $.get('/Statistics/GetDistrictOrderStats', { startDate, endDate }, function (data) {
+                    if (charts.districtOrder) {
+                        charts.districtOrder.destroy();
+                    }
+
+                    const ctx = document.getElementById('districtOrderChart').getContext('2d');
+                    charts.districtOrder = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: data.map(x => x.Ward),
+                            datasets: [{
+                                label: 'Số lượng đơn hàng',
+                                data: data.map(x => x.OrderCount),
+                                backgroundColor: chartColors,
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Tổng số đơn hàng theo từng xã'
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Cập nhật doanh thu
+            function updateRevenue(startDate, endDate) {
+                $.get('/Statistics/GetTotalRevenue', { startDate, endDate }, function (data) {
+                    $('#totalRevenue').text(data.TotalRevenue ? `${data.TotalRevenue}đ` : '0đ');
+                });
+            }
+
+            // Khởi tạo biểu đồ khi tải trang
+            updateAllCharts($('#startDate').val(), $('#endDate').val());
+        });
+    </script>
+}

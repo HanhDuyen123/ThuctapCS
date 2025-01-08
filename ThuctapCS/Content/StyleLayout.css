@@ -1,0 +1,188 @@
+﻿body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    height: 100vh;
+    display: flex;
+    /* Prevent body scroll */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 190px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin: 10px; /* Để sidebar tách khỏi viền màn hình */
+    height: calc(100vh - 20px); /* Đảm bảo chiều cao không bị vượt quá màn hình */
+    position: fixed; /* Sidebar is fixed on the left */
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+}
+
+    .sidebar.active {
+        transform: translateX(-280px); /* Move sidebar offscreen */
+    }
+
+    .sidebar .logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+        .sidebar .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .sidebar .logo h5 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            color: #333;
+        }
+
+    .sidebar .nav-link {
+        display: flex;
+        align-items: center;
+        color: #495057;
+        text-decoration: none;
+        padding: 10px 15px;
+        margin: 5px 0;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .sidebar .nav-link:hover {
+            background-color: #e9ecef;
+            color: #212529;
+        }
+
+        .sidebar .nav-link i {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+.active-nav {
+    background-color: #b0aaaa; /* Màu nền cho mục được chọn */
+    font-weight: bold; /* Làm nổi bật văn bản */
+}
+/* Main content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    margin-left: 200px; /* Adjust for sidebar */
+    transition: margin-left 0.3s ease;
+}
+
+    .main-content.sidebar-active {
+        margin-left: 0; /* Shift content left when sidebar is hidden */
+    }
+
+/* Header */
+.header {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .header .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 5px 10px;
+    }
+
+        .header .search-bar input {
+            border: none;
+            outline: none;
+            padding: 5px;
+            flex: 1;
+        }
+
+        .header .search-bar i {
+            color: #adb5bd;
+        }
+
+    .header .user-info {
+        display: flex;
+        align-items: center;
+    }
+
+        .header .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        .header .user-info span {
+            font-weight: bold;
+            color: #495057;
+        }
+
+/* Toggle Button */
+#toggleSidebar {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #495057;
+    z-index: 10;
+}
+
+/* Overlay */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-280px); /* Sidebar hidden by default */
+    }
+
+        .sidebar.active {
+            transform: translateX(0); /* Sidebar visible */
+        }
+
+    .main-content {
+        margin-left: 0; /* No margin for mobile view */
+    }
+
+    #toggleSidebar {
+        display: block; /* Show the toggle button */
+    }
+
+    #overlay.active {
+        display: block;
+    }
+}
+/* Content */
+.content {
+    background-color: #ffffff;
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

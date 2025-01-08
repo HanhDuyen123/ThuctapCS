@@ -1,0 +1,152 @@
+﻿@model ThuctapCS.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="details-container">
+    <h4 class="text-primary">THÔNG TIN NHÂN VIÊN</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">
+            Họ và tên
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.last_name) @Html.DisplayFor(model => model.first_name)
+        </dd>
+
+        <dt class="col-sm-3">
+            Ngày sinh
+        </dt>
+        <dd class="col-sm-9">
+            @(Model.date_of_birth.HasValue ? Model.date_of_birth.Value.ToString("dd/MM/yyyy") : string.Empty)
+        </dd>
+
+        <dt class="col-sm-3">
+            Giới tính
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt class="col-sm-3">
+            Email
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt class="col-sm-3">
+            Mật khẩu
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt class="col-sm-3">
+            SĐT
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt class="col-sm-3">
+            Địa chỉ
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt class="col-sm-3">
+            Vai trò
+        </dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.role_name)
+        </dd>
+
+        <dt class="col-sm-3">
+            Ngày làm việc
+        </dt>
+        <dd class="col-sm-9">
+            @(Model.hire_date.HasValue ? Model.hire_date.Value.ToString("dd/MM/yyyy") : string.Empty)
+        </dd>
+
+        <dt class="col-sm-3">
+            Lương
+        </dt>
+        <dd class="col-sm-9">
+            @String.Format(new System.Globalization.CultureInfo("vi-VN"), "{0:N0} VND", Model.salary)
+        </dd>
+    </dl>
+
+    <div class="action-buttons">
+        <p>
+            @Html.ActionLink("Chỉnh Sửa", "Edit", new { id = Model.employee_id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Quay Lại Danh Sách", "Index", null, new { @class = "btn btn-secondary" })
+        </p>
+    </div>
+</div>
+
+<style>
+    .details-container {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+        max-width: 600px;
+        margin: 0px auto; 
+    }
+
+    h4 {
+        color: #343a40;
+        margin-bottom: 20px;
+        text-align: center; 
+        font-size: 24px; 
+        font-weight: 600;
+    }
+
+    dl {
+        margin-bottom: 0;
+    }
+
+    dt {
+        font-weight: bold;
+        color: #495057;
+        margin-bottom: 10px; 
+    }
+
+    dd {
+        margin-bottom: 20px;
+        background-color: #f8f9fa; 
+        padding: 10px; 
+        border-radius: 4px; 
+    }
+
+    .action-buttons {
+        margin-top: 30px; 
+        text-align: center; 
+    }
+
+    .btn {
+        margin-right: 10px;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            filter: brightness(0.9);
+        }
+</style>

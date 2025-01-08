@@ -1,0 +1,189 @@
+﻿@using ThuctapCS.Models;
+@model IEnumerable<ThuctapCS.Models.Order>
+
+@{
+    Layout = null; // Không cần layout cho Partial View
+    var totalPages = ViewBag.TotalPages;
+    var currentPage = ViewBag.CurrentPage;
+}
+
+<html>
+<head>
+    <link href="~/Content/StyleList.css" rel="stylesheet" type="text/css" />
+    <style>
+        .status-processing {
+            background-color: orange;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .status-shipping {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .status-delivered {
+            background-color: green;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .status-returned {
+            background-color: red;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="orderList">
+        <div class="table-container">
+            <h3 class="table-header">DANH SÁCH ĐƠN HÀNG</h3>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên khách hàng</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày nhập kho</th>
+                        <th>Ngày giao hàng</th>
+                        <th>Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@(Model.ToList().IndexOf(item) + 1 + (currentPage - 1) * 5)</td>
+                            <td>@(item.Customer != null ? item.receiver_name : "Không có thông tin")</td>
+                            @using System.Globalization
+                            <td>@String.Format(new CultureInfo("vi-VN"), "{0:C0}", (item.order_price + item.shipping_fee))</td>
+                            <td>
+                                <span class="status-@(item.status.ToLower().Replace(" ", "-"))"
+                                      data-order-id="@item.order_id"
+                                      onclick="changeStatus(this)">
+                                    @item.status
+                                </span>
+                            </td>
+
+                            <td>
+                                @(item.warehouse_date.HasValue
+                                ? $"{item.warehouse_date.Value:dd}/{item.warehouse_date.Value:MM}/{item.warehouse_date.Value:yyyy}"
+                                : "Không có dữ liệu")
+                            </td>
+                            <td class="shipping-date" data-order-id="@item.order_id">
+                                @(item.shipping_date.HasValue
+                                ? $"{item.shipping_date.Value:dd}/{item.shipping_date.Value:MM}/{item.shipping_date.Value:yyyy}"
+                                : "Không có dữ liệu")
+                            </td>
+                            <td class="action">
+                                <a href="@Url.Action("Edit", new { id = item.order_id })" class="edit-btn" title="Cập nhật dữ liệu">
+                                    <img src="/images/edit.png" width="20" height="20" />
+                                </a>
+                                <a href="@Url.Action("Details", new { id = item.order_id })" class="edit-btn" title="Xem chi tiết">
+                                    <img src="/images/details.png" width="20" height="20" />
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <div class="pagination">
+                @if (totalPages > 1)
+                {
+                    <button class="prev @((currentPage == 1) ? "disabled" : "")">
+                        <a href="javascript:void(0);" class="prev-page" data-page="@(currentPage - 1)">&#10094;</a>
+                    </button>
+                    for (int i = 1; i <= totalPages; i++)
+                    {
+                        <button class="@((i == currentPage) ? "active" : "")">
+                            <a href="javascript:void(0);" class="page-link" data-page="@i">@i</a>
+                        </button>
+                    }
+                    <button class="next @((currentPage == totalPages) ? "disabled" : "")">
+                        <a href="javascript:void(0);" class="next-page" data-page="@(currentPage + 1)">&#10095;</a>
+                    </button>
+                }
+            </div>
+            <input type="hidden" id="totalPages" value="@totalPages" />
+
+        </div>
+    </div>
+
+    @*Model xác nhận xóa*@
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Xác nhận xóa</h5>
+                </div>
+                <div class="modal-body">
+                    Bạn chắc chắn muốn xóa đơn này?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function changeStatus(element) {
+            var orderId = $(element).data("order-id");
+            var currentStatus = $(element).text().trim();
+
+            // Danh sách trạng thái
+            var statuses = ["Processing", "Shipping", "Delivered", "Returned"];
+
+            // Tìm chỉ số trạng thái hiện tại
+            var currentIndex = statuses.indexOf(currentStatus);
+
+            // Nếu trạng thái hiện tại không phải trạng thái cuối cùng
+            if (currentIndex < statuses.length - 1) {
+                var newStatus = statuses[currentIndex + 1];
+                updateStatus(orderId, newStatus);
+            }
+        }
+
+        function updateStatus(orderId, newStatus) {
+            $.ajax({
+                url: '@Url.Action("UpdateStatus", "Orders")',
+                type: 'POST',
+                data: { id: orderId, status: newStatus },
+                success: function(response) {
+                    if (response.success) {
+                        // Cập nhật trạng thái hiển thị
+                        var element = $("span[data-order-id='" + orderId + "']");
+                        element.text(newStatus);
+                        element.attr("class", "status-" + newStatus.toLowerCase().replace(" ", "-"));
+                        // Nếu trạng thái là "Delivered", cập nhật shipping_date hiển thị
+                        if (newStatus === "Delivered") {
+                            var now = new Date();
+                            var formattedDate = now.toLocaleDateString("vi-VN"); // Định dạng ngày theo kiểu Việt Nam
+
+                            // Cập nhật trực tiếp ô shipping_date
+                            var shippingDateElement = $("td.shipping-date[data-order-id='" + orderId + "']");
+                            shippingDateElement.text(formattedDate);
+                        }
+                    } else {
+                        alert("Cập nhật trạng thái không thành công.");
+                    }
+                },
+                error: function() {
+                    alert("Có lỗi xảy ra. Vui lòng thử lại.");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

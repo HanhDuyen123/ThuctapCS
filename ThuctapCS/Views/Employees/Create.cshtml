@@ -1,0 +1,153 @@
+﻿@model ThuctapCS.Models.Employee
+
+@{
+    ViewBag.Title = "Thêm Nhân Viên";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 class="text-center">THÊM NHÂN VIÊN MỚI</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Thông Tin Nhân Viên</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => model.last_name, "Họ", htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.last_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.last_name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-lg-6">
+            @Html.LabelFor(model => model.first_name, "Tên", htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.first_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.first_name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="form-group col-lg-6">
+                @Html.LabelFor(model => model.date_of_birth, "Ngày sinh", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.date_of_birth, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.date_of_birth, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group col-lg-6">
+                @Html.LabelFor(model => model.gender, "Giới tính", htmlAttributes: new { @class = "control-label" })
+                <div class="radio">
+                    @Html.RadioButtonFor(model => model.gender, "Nam", new { id = "genderMale" }) Nam
+                    @Html.RadioButtonFor(model => model.gender, "Nữ", new { id = "genderFemale" }) Nữ
+                    @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, "Email", htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, "Mật khẩu", htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-6">
+                @Html.LabelFor(model => model.phone, "SĐT", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group col-lg-6">
+                @Html.LabelFor(model => model.role_name, "Vai trò", htmlAttributes: new { @class = "control-label" })
+                @Html.DropDownListFor(model => model.role_name, new SelectList(new[]
+                    {
+                        new { Value = "Quản lý", Text = "Quản lý" },
+                        new { Value = "Nhân viên", Text = "Nhân viên" }
+                    }, "Value", "Text"), "Chọn vai trò", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.role_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.address, "Địa chỉ", htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-6">
+                @Html.LabelFor(model => model.hire_date, "Ngày làm việc", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.hire_date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.hire_date, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group col-lg-6">
+                @Html.LabelFor(model => model.salary, "Lương", htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.salary, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.salary, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+                @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-secondary" })
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    body {
+        background-color: #f8f9fa; /* Màu nền sáng */
+    }
+
+    h2 {
+        color: #343a40; /* Màu tiêu đề */
+        margin-bottom: 20px;
+    }
+
+    .form-horizontal {
+        background-color: #ffffff; /* Nền trắng cho biểu mẫu */
+        border-radius: 5px; /* Bo góc */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+        padding: 20px; /* Padding xung quanh */
+    }
+
+    .control-label {
+        font-weight: bold; /* Đậm nhãn */
+    }
+
+    .form-control {
+        border-radius: 4px; /* Bo góc cho trường nhập */
+        border: 1px solid #ced4da; /* Viền nhẹ cho các trường nhập */
+        transition: border-color 0.3s; /* Hiệu ứng chuyển tiếp */
+    }
+
+        .form-control:focus {
+            border-color: #80bdff; /* Màu viền khi có focus */
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Đổ bóng khi focus */
+        }
+
+    .btn-primary {
+        background-color: #007bff; /* Màu nền nút chính */
+        color: #ffffff; /* Màu chữ trắng */
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Màu nền khi hover */
+        }
+
+    .btn-secondary {
+        margin-left: 10px; /* Khoảng cách giữa các nút */
+    }
+</style>

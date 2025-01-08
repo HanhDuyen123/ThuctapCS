@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThucTapCSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_of_birth" Type="DateTime" Precision="3" />
+    <Property Name="gender" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="registration_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Order__customer___46E78A0C" FromRole="Customer" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employee_id" />
+    </Key>
+    <Property Name="employee_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_of_birth" Type="DateTime" Precision="3" />
+    <Property Name="gender" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="role_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hire_date" Type="DateTime" Precision="3" />
+    <Property Name="salary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="OrderAssignments" Relationship="Self.FK__OrderAssi__emplo__4BAC3F29" FromRole="Employee" ToRole="OrderAssignment" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="order_id" />
+    </Key>
+    <Property Name="order_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int64" Nullable="false" />
+    <Property Name="receiver_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="receiver_street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ward_id" Type="Int64" />
+    <Property Name="receiver_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="order_price" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="shipping_fee" Type="Decimal" Precision="11" Scale="2" Nullable="false" />
+    <Property Name="warehouse_date" Type="DateTime" Precision="3" />
+    <Property Name="shipping_date" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="return_reason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Order__customer___46E78A0C" FromRole="Order" ToRole="Customer" />
+    <NavigationProperty Name="Ward" Relationship="Self.FK__Order__ward_id__47DBAE45" FromRole="Order" ToRole="Ward" />
+    <NavigationProperty Name="OrderAssignments" Relationship="Self.FK__OrderAssi__order__4CA06362" FromRole="Order" ToRole="OrderAssignment" />
+  </EntityType>
+  <EntityType Name="OrderAssignment">
+    <Key>
+      <PropertyRef Name="assignment_id" />
+    </Key>
+    <Property Name="assignment_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="employee_id" Type="Int64" Nullable="false" />
+    <Property Name="order_id" Type="Int64" Nullable="false" />
+    <Property Name="assigned_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__OrderAssi__emplo__4BAC3F29" FromRole="OrderAssignment" ToRole="Employee" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__OrderAssi__order__4CA06362" FromRole="OrderAssignment" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="ward_id" />
+    </Key>
+    <Property Name="ward_id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ward_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="district_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="province_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Order__ward_id__47DBAE45" FromRole="Ward" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK__Order__customer___46E78A0C">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderAssi__emplo__4BAC3F29">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="employee_id" />
+      </Principal>
+      <Dependent Role="OrderAssignment">
+        <PropertyRef Name="employee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__ward_id__47DBAE45">
+    <End Role="Ward" Type="Self.Ward" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ward">
+        <PropertyRef Name="ward_id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ward_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderAssi__order__4CA06362">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderAssignment" Type="Self.OrderAssignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="order_id" />
+      </Principal>
+      <Dependent Role="OrderAssignment">
+        <PropertyRef Name="order_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ThucTapCSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="OrderAssignments" EntityType="Self.OrderAssignment" />
+    <EntitySet Name="Wards" EntityType="Self.Ward" />
+    <AssociationSet Name="FK__Order__customer___46E78A0C" Association="Self.FK__Order__customer___46E78A0C">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderAssi__emplo__4BAC3F29" Association="Self.FK__OrderAssi__emplo__4BAC3F29">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="OrderAssignment" EntitySet="OrderAssignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__ward_id__47DBAE45" Association="Self.FK__Order__ward_id__47DBAE45">
+      <End Role="Ward" EntitySet="Wards" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderAssi__order__4CA06362" Association="Self.FK__OrderAssi__order__4CA06362">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderAssignment" EntitySet="OrderAssignments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

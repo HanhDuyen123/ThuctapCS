@@ -1,0 +1,184 @@
+﻿@model IEnumerable<ThuctapCS.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<html>
+<head>
+    <link href="~/Content/styleIndex.css" rel="stylesheet" type="text/css" />
+    <style>
+        .alert {
+            position: fixed; /* Để cố định vị trí */
+            top: 20px; /* Cách từ đầu trang */
+            left: 50%; /* Căn giữa */
+            transform: translateX(-50%); /* Căn giữa */
+            margin: 0 auto; /* Giảm khoảng cách tự động */
+            border-radius: 5px;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(-20px);
+            z-index: 1000; /* Đảm bảo thông báo nằm trên các phần tử khác */
+        }
+
+            .alert.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    </style>
+</head>
+<body>
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div id="success-message" class="alert alert-success text-center">
+            @TempData["SuccessMessage"]
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                // Hiện thông báo
+                $('#success-message').addClass('show');
+
+                // Ẩn thông báo sau 3 giây
+                setTimeout(function () {
+                    $('#success-message').removeClass('show');
+                }, 1500);
+            });
+        </script>
+    }
+
+
+    <div>
+        @using (Html.BeginForm("Index", "Employees", FormMethod.Get, new { id = "searchForm", @class = "search-form" }))
+        {
+            <div class="search-header">
+                <div style="flex: 1; display: flex; align-items: center;">
+                    <i class="fas fa-search" style="margin-right: 10px; color: #aaa;"></i>
+                    @Html.TextBox("searchName", Request.QueryString["searchName"], new { @class = "form-control", placeholder = "Nhập tên nhân viên..." })
+                </div>
+                <span class="results"></span>
+            </div>
+
+            <!-- Advanced Search -->
+            <div class="advanced-search">
+                <h5>Advanced Search</h5>
+                <div class="row form-row mb-3">
+                    <div class="col">
+                        @Html.DropDownList("roleName", new SelectList(new List<string> { "Quản lý", "Nhân viên" }), "Chọn vai trò", new { @class = "form-control" })
+                    </div>
+                    <div class="col">
+                        @Html.DropDownList("gender", new SelectList(new List<string> { "Nam", "Nữ" }), "Chọn giới tính", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="row form-row mb-3">
+                    <div class="col">
+                        @Html.TextBox("phoneNumber", Request.QueryString["phoneNumber"], new { @class = "form-control", placeholder = "Nhập số điện thoại..." })
+                    </div>
+                    <div class="col">
+                        @Html.TextBox("address", Request.QueryString["address"], new { @class = "form-control", placeholder = "Nhập địa chỉ..." })
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-search" type="submit">Search</button>
+                    <button class="btn btn-delete" type="button" id="resetSearch">Delete</button>
+                </div>
+            </div>
+            <div class="row form-row mb-3" style="display: flex; justify-content:end;">
+                <div class="col">
+                    <label for="sortOrder" class="title-sort mx-3">Sắp xếp:</label>
+                    <select id="sortOrder" class="form-control mx-3" style="max-width: 300px">
+                        <option value="">Chọn tiêu chí sắp xếp</option>
+                        <option value="Name_asc">Tên nhân viên - Tăng dần</option>
+                        <option value="Name_desc">Tên nhân viên - Giảm dần</option>
+                    </select>
+                </div>
+                <div class="col text-right">
+                    <button class="create">
+                        @Html.ActionLink("Thêm mới", "Create")
+                    </button>
+                </div>
+            </div>
+        }
+        @*Phần nội dung table*@
+        @Html.Partial("_EmpList", Model)
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Khi thay đổi lựa chọn trong dropdown "Sắp xếp"
+            $('#sortOrder').change(function () {
+                const sortValue = $(this).val();
+                // Gửi AJAX yêu cầu sắp xếp
+                $.ajax({
+                    url: '@Url.Action("Index", "Employees")',
+                    type: 'GET',
+                    data: {
+                        sortOrder: sortValue,
+                        searchName: $('#searchName').val(),
+                        gender: $('#gender').val(),
+                        phoneNumber: $('#phoneNumber').val(),
+                        address: $('#address').val(),
+                        roleName: $('#roleName').val(),
+                    },
+                    success: function (data) {
+                        $('#empList').html(data); // Cập nhật lại danh sách sản phẩm
+                    }
+                });
+            });
+
+            // Khi bấm nút "Delete" reset các trường tìm kiếm
+            $('#resetSearch').click(function () {
+                $('#searchForm')[0].reset(); // Reset form tìm kiếm
+                // Gửi AJAX yêu cầu để hiển thị tất cả sản phẩm
+                $.ajax({
+                    url: '@Url.Action("Index", "Employees")',
+                    type: 'GET',
+                    success: function (data) {
+                        $('#empList').html(data); // Cập nhật lại danh sách sản phẩm
+                    }
+                });
+            });
+
+            // Thực hiện tìm kiếm
+            $('#searchForm').submit(function (event) {
+                event.preventDefault(); // Ngừng reload trang
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'GET',
+                    data: $(this).serialize(), // Gửi dữ liệu từ form
+                    success: function (data) {
+                        $('#empList').html(data); // Cập nhật lại danh sách sản phẩm sau khi tìm kiếm
+                    }
+                });
+            });
+            $(document).on('click', '.page-link, .prev-page, .next-page', function () {
+                var page = $(this).data('page');
+                $.ajax({
+                    url: '@Url.Action("Index", "Employees")',
+                    data: {
+                        searchName: $('#searchName').val(),
+                        gender: $('#gender').val(),
+                        phoneNumber: $('#phoneNumber').val(),
+                        address: $('#address').val(),
+                        roleName: $('#roleName').val(),
+                        sortOrder: $('#sortOrder').val(),
+                        page: page
+                    },
+                    success: function (data) {
+                        $('#empList').html(data);
+                        updatePaginationButtons(page);
+                    }
+                });
+            });
+            function updatePaginationButtons(currentPage) {
+                var totalPages = parseInt($('#totalPages').val()); // Lưu tổng số trang vào input ẩn
+                $('.prev-page').parent().toggleClass('disabled', currentPage === 1);
+                $('.next-page').parent().toggleClass('disabled', currentPage === totalPages);
+            }
+        });
+    </script>
+</body>
+</html>
+
