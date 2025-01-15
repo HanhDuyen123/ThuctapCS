@@ -75,17 +75,18 @@
             </div>
 
             <div class="col-md-6">
-                @Html.LabelFor(model => model.shipping_date, "Ngày giao hàng", htmlAttributes: new { @class = "form-label" })
-                @Html.EditorFor(model => model.shipping_date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
-                @Html.ValidationMessageFor(model => model.shipping_date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-md-6">
                 @Html.LabelFor(model => model.status, "Trạng thái", htmlAttributes: new { @class = "form-label" })
                 @Html.DropDownList("status", new SelectList(new List<string> { "Processing", "Shipping", "Delivered", "Returned" }), htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+                
+            </div>
+        </div>
+
+        @*<div class="row mb-3">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.shipping_date, "Ngày giao hàng", htmlAttributes: new { @class = "form-label" })
+                @Html.EditorFor(model => model.shipping_date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                @Html.ValidationMessageFor(model => model.shipping_date, "", new { @class = "text-danger" })
             </div>
 
             <div class="col-md-6">
@@ -93,7 +94,7 @@
                 @Html.EditorFor(model => model.return_reason, new { htmlAttributes = new { @class = "form-control", rows = 3 } })
                 @Html.ValidationMessageFor(model => model.return_reason, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group text-center">
             <input type="submit" value="Tạo Đơn" class="btn btn-primary" />

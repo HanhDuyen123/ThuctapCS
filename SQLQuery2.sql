@@ -188,4 +188,4 @@ VALUES
 (7, 29, GETDATE()),
 (7, 30, GETDATE()),
 (15, 31, GETDATE());
-SELECT * FROM Employee;
+SELECT * FROM [Order];

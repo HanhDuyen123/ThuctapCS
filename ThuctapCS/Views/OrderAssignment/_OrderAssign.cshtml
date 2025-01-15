@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ThuctapCS.Models.Order>
+
+@{ 
+    var totalPages = ViewBag.TotalPages ?? 1;
+    var currentPage = ViewBag.CurrentPage ?? 1;
+    var pageSize = ViewBag.PageSize ?? 5;
+}
+
+<table>
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="selectAll" /></th>
+            <th>Mã đơn hàng</th>
+            <th>Ngày nhập kho</th>
+            <th>Trạng thái</th>
+            <th>Phường/Xã</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td><input type="checkbox" class="orderCheckbox" value="@order.order_id" /></td>
+                <td>@order.order_id</td>
+                <td>@(order.warehouse_date.HasValue ? order.warehouse_date.Value.ToShortDateString() : "Không có dữ liệu")</td>
+                <td>@order.status</td>
+                <td>@order.Ward.ward_name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination">
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a href="javascript:void(0);" onclick="loadPage(@(ViewBag.CurrentPage - 1))">«</a>
+    }
+
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        if (i == ViewBag.CurrentPage)
+        {
+            <strong>@i</strong>
+        }
+        else
+        {
+            <a href="javascript:void(0);" onclick="loadPage(@i)">@i</a>
+        }
+    }
+
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a href="javascript:void(0);" onclick="loadPage(@(ViewBag.CurrentPage + 1))">»</a>
+    }
+</div>

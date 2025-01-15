@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using ThuctapCS.Models;
@@ -48,7 +50,7 @@ namespace ThuctapCS.Controllers
                 employees = employees.Where(e => e.role_name == roleName);
             }
 
-            // Sắp xếp sản phẩm
+            // Sắp xếp
             switch (sortOrder)
             {
                 case "Name_asc":
@@ -167,6 +169,7 @@ namespace ThuctapCS.Controllers
             // Nếu không có lỗi, thêm nhân viên mới
             if (ModelState.IsValid)
             {
+                employee.password = GetMD5(employee.password);
                 db.Employees.Add(employee);
                 db.SaveChanges();
                 TempData["SuccessMessage"] = "Nhân viên đã được thêm thành công!";
@@ -176,7 +179,16 @@ namespace ThuctapCS.Controllers
             return View(employee);
         }
 
+        private string GetMD5(string str)
+        {
+            using (var md5 = MD5.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(str);
+                byte[] hash = md5.ComputeHash(bytes);
 
+                return string.Concat(hash.Select(b => b.ToString("x2")));
+            }
+        }
 
         // GET: Employees/Edit/5
         public ActionResult Edit(long? id)
@@ -236,9 +248,16 @@ namespace ThuctapCS.Controllers
             TempData["SuccessMessage"] = "Nhân viên đã được xóa thành công!";
             return RedirectToAction("Index");
         }
-        public ActionResult GetEmployeeInfo(long id)
+        public ActionResult GetEmployeeInfo()
         {
-            var employee = db.Employees.Find(id);
+            // Lấy ID người dùng từ session
+            var userId = (long?)Session["idUser"];
+            if (userId == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var employee = db.Employees.Find(userId);
             if (employee == null)
             {
                 return HttpNotFound();
@@ -250,11 +269,10 @@ namespace ThuctapCS.Controllers
                 email = employee.email,
                 phone = employee.phone,
                 address = employee.address,
-                hireDate = employee.hire_date,
-                salary = employee.salary,
                 roleName = employee.role_name
             }, JsonRequestBehavior.AllowGet);
         }
+    
 
         protected override void Dispose(bool disposing)
         {

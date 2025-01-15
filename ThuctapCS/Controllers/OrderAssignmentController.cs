@@ -46,7 +46,10 @@ namespace ThuctapCS.Controllers
             // Kiểm tra nếu yêu cầu là AJAX
             if (Request.IsAjaxRequest())
             {
-                return Json(new { orders, totalPages, currentPage = page }, JsonRequestBehavior.AllowGet);
+                ViewBag.TotalPages = totalPages;
+                ViewBag.CurrentPage = page;
+
+                return PartialView("_OrderAssign", orders);
             }
             ViewBag.TotalPages = totalPages;
             ViewBag.CurrentPage = page;
@@ -61,29 +64,37 @@ namespace ThuctapCS.Controllers
         [CustomAuthorize("Quản lý")]
         public ActionResult AssignOrders(long employeeId, long[] selectedOrders)
         {
-            if (selectedOrders != null && selectedOrders.Length > 0)
+            try
             {
-                foreach (var orderId in selectedOrders)
+                if (selectedOrders != null && selectedOrders.Length > 0)
                 {
-                    var orderAssignment = new OrderAssignment
+                    foreach (var orderId in selectedOrders)
                     {
-                        order_id = orderId,
-                        employee_id = employeeId,
-                        assigned_date = DateTime.Now
-                    };
+                        var orderAssignment = new OrderAssignment
+                        {
+                            order_id = orderId,
+                            employee_id = employeeId,
+                            assigned_date = DateTime.Now
+                        };
 
-                    db.OrderAssignments.Add(orderAssignment);
+                        db.OrderAssignments.Add(orderAssignment);
+
+                        var order = db.Orders.Find(orderId);
+                        if (order != null)
+                        {
+                            order.status = "Shipping";
+                        }
+                    }
+
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Đơn hàng đã được phân công thành công!" });
                 }
-
-                db.SaveChanges();
-                TempData["SuccessMessage"] = "Đơn hàng đã được phân công thành công!";
+                return Json(new { success = false, message = "Vui lòng chọn ít nhất một đơn hàng." });
             }
-            else
+            catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Vui lòng chọn ít nhất một đơn hàng.";
+                return Json(new { success = false, message = "Có lỗi xảy ra: " + ex.Message });
             }
-
-            return RedirectToAction("Index", "Orders"); // Quay lại danh sách đơn hàng
         }
     }
 }

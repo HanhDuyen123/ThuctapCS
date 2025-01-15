@@ -66,11 +66,18 @@
                             @using System.Globalization
                             <td>@String.Format(new CultureInfo("vi-VN"), "{0:C0}", (item.order_price + item.shipping_fee))</td>
                             <td>
-                                <span class="status-@(item.status.ToLower().Replace(" ", "-"))"
-                                      data-order-id="@item.order_id"
-                                      onclick="changeStatus(this)">
-                                    @item.status
-                                </span>
+                                @if (string.IsNullOrEmpty(item.status))
+                                {
+                                    <span class="status-undefined">Chưa xác định</span>
+                                }
+                                else
+                                {
+                                    <span class="status-@(item.status.ToLower().Replace(" ", "-"))"
+                                          data-order-id="@item.order_id"
+                                          onclick="changeStatus(this)">
+                                        @item.status
+                                    </span>
+                                }
                             </td>
 
                             <td>
@@ -148,12 +155,11 @@
             // Tìm chỉ số trạng thái hiện tại
             var currentIndex = statuses.indexOf(currentStatus);
 
-            // Nếu trạng thái hiện tại không phải trạng thái cuối cùng
-            if (currentIndex < statuses.length - 1) {
-                var newStatus = statuses[currentIndex + 1];
-                updateStatus(orderId, newStatus);
-            }
+            var nextIndex = (currentIndex + 1) % statuses.length; // Sử dụng phép chia lấy dư để tạo vòng lặp
+            var newStatus = statuses[nextIndex];
+            updateStatus(orderId, newStatus);
         }
+        
 
         function updateStatus(orderId, newStatus) {
             $.ajax({

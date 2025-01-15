@@ -3,108 +3,116 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\_emplist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\_emplist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\_orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\_orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|c:\\users\\admin\\desktop\\duyen_repo\\thuctapcs\\thuctapcs\\views\\orderassignment\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orderassignment\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|c:\\users\\admin\\desktop\\duyen_repo\\thuctapcs\\thuctapcs\\controllers\\orderassignmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\orderassignmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|c:\\users\\admin\\desktop\\duyen_repo\\thuctapcs\\thuctapcs\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\content\\styleindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\content\\styleindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\statistics\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\statistics\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|c:\\users\\admin\\desktop\\duyen_repo\\thuctapcs\\thuctapcs\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\statisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\statisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\login\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|c:\\users\\admin\\desktop\\duyen_repo\\thuctapcs\\thuctapcs\\views\\statistics\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\statistics\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orderassignment\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orderassignment\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\orderassignmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\orderassignmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orderassignment\\_orderassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orderassignment\\_orderassign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\_emplist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\_emplist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\_orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\_orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\orders\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\orders\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\employees\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\content\\styleindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\content\\styleindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|solutionrelative:thuctapcs\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{585562E2-135A-4725-967F-9E172F9279D1}|ThuctapCS\\ThuctapCS.csproj|C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\thuctapcs\\models\\ttcs.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
@@ -130,193 +138,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Index.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Index.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Index.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAABwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-31T10:32:14.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Index.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Index.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Index.cshtml",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAwwIEAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-26T09:30:27.526Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Edit.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T05:02:09.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Edit.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Edit.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-31T10:49:02.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Details.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Details.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-31T10:49:57.599Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "ThuctapCS\\Controllers\\EmployeesController.cs",
-              "ViewState": "AgIAAN8AAAAAAAAAAAAYwK0AAAANAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "ThuctapCS\\App_Start\\RouteConfig.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "ThuctapCS\\App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T10:31:29.187Z",
+              "WhenOpened": "2025-01-13T00:31:40.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StatisticsController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\StatisticsController.cs",
+              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\StatisticsController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\StatisticsController.cs",
+              "RelativeToolTip": "ThuctapCS\\Controllers\\StatisticsController.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAkwL4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-28T11:10:10.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "_LayoutAdmin.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAApAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Statistics\\Index.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Statistics\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Statistics\\Index.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Statistics\\Index.cshtml",
+              "ViewState": "AgIAACYBAAAAAAAAAAAAAC8BAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-26T09:55:36.643Z",
+              "WhenOpened": "2024-12-28T11:18:31.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_EmpList.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAADYAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-31T10:32:31.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Create.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Create.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-31T10:35:54.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Details.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Details.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Details.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T04:38:45.772Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Create.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Create.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T05:27:45.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Assign.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Assign.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Assign.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Assign.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Assign.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-27T11:28:15.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_OrderList.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAGIAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-26T09:22:10.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Delete.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Delete.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-31T10:50:35.912Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 2,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Login\\Login.cshtml",
               "RelativeDocumentMoniker": "ThuctapCS\\Views\\Login\\Login.cshtml",
@@ -329,50 +202,259 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Assign.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-01-02T10:20:46.197Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 7,
               "Title": "OrderAssignmentController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\OrderAssignmentController.cs",
               "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\OrderAssignmentController.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\OrderAssignmentController.cs",
               "RelativeToolTip": "ThuctapCS\\Controllers\\OrderAssignmentController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA+wBcAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwB0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-02T10:13:46.553Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-02T10:13:46.553Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 6,
+              "Title": "Assign.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\OrderAssignment\\Assign.cshtml",
+              "ViewState": "AgIAABgBAAAAAAAAAAAcwHgBAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-02T10:20:46.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Create.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Create.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-31T10:35:54.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Index.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Index.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Index.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAABwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-31T10:32:14.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "ThuctapCS\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAkwBUBAABxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-26T09:09:43.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAcwJ8AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T09:55:36.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Edit.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Edit.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEcAAAB1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T05:02:09.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_OrderAssign.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\OrderAssignment\\_OrderAssign.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\OrderAssignment\\_OrderAssign.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\OrderAssignment\\_OrderAssign.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\OrderAssignment\\_OrderAssign.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-01-09T07:04:23.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "ThuctapCS\\Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAqwNgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T10:31:29.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Create.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Create.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Create.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwBQAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T05:27:45.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\LoginController.cs",
               "RelativeToolTip": "ThuctapCS\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwDkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwCYAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T16:54:00.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-24T16:54:00.692Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "ThuctapCS\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-24T16:37:36.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T16:38:26.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_EmpList.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\_EmpList.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAcwFAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-31T10:32:31.58Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Edit.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Edit.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Edit.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAFgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-31T10:49:02.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Delete.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Delete.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-31T10:50:35.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Index.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Index.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Index.cshtml",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAALgAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T09:30:27.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_OrderList.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\_OrderList.cshtml",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAAAKEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-26T09:22:10.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Details.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Details.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T04:38:45.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Details.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Employees\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Employees\\Details.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Employees\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-31T10:49:57.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Assign.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Assign.cshtml",
+              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Orders\\Assign.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Orders\\Assign.cshtml",
+              "RelativeToolTip": "ThuctapCS\\Views\\Orders\\Assign.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-27T11:28:15.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
               "Title": "styleIndex.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Content\\styleIndex.css",
               "RelativeDocumentMoniker": "ThuctapCS\\Content\\styleIndex.css",
@@ -380,49 +462,11 @@
               "RelativeToolTip": "ThuctapCS\\Content\\styleIndex.css",
               "ViewState": "AgIAACoAAAAAAAAAAAAAAD0AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-26T08:39:58.895Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T08:39:58.895Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "ThuctapCS\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAD8BAAAAAAAAAAAqwFcBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T09:09:43.782Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Statistics\\Index.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Statistics\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Statistics\\Index.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Statistics\\Index.cshtml",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAAAAcAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-28T11:18:31.049Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "StatisticsController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\StatisticsController.cs",
-              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\StatisticsController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\StatisticsController.cs",
-              "RelativeToolTip": "ThuctapCS\\Controllers\\StatisticsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-28T11:10:10.348Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 26,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Web.config",
               "RelativeDocumentMoniker": "ThuctapCS\\Web.config",
@@ -435,19 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "DashboardController.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\DashboardController.cs",
-              "RelativeDocumentMoniker": "ThuctapCS\\Controllers\\DashboardController.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Controllers\\DashboardController.cs",
-              "RelativeToolTip": "ThuctapCS\\Controllers\\DashboardController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T16:37:36.988Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ThuctapCS\\Views\\Shared\\_Layout.cshtml",
@@ -459,19 +491,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Dashboard\\Index.cshtml",
-              "RelativeDocumentMoniker": "ThuctapCS\\Views\\Dashboard\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Views\\Dashboard\\Index.cshtml",
-              "RelativeToolTip": "ThuctapCS\\Views\\Dashboard\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T16:38:26.522Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "TTCS.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Models\\TTCS.edmx",
               "RelativeDocumentMoniker": "ThuctapCS\\Models\\TTCS.edmx",
@@ -482,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "StyleLayout.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Content\\StyleLayout.css",
               "RelativeDocumentMoniker": "ThuctapCS\\Content\\StyleLayout.css",
@@ -494,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "StyleList.css",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Content\\StyleList.css",
               "RelativeDocumentMoniker": "ThuctapCS\\Content\\StyleList.css",
@@ -506,7 +526,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "CustomAuthorizationAttribute.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\duyen_repo\\ThuctapCS\\ThuctapCS\\Filters\\CustomAuthorizationAttribute.cs",
               "RelativeDocumentMoniker": "ThuctapCS\\Filters\\CustomAuthorizationAttribute.cs",

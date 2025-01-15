@@ -181,22 +181,39 @@
                 const startDate = $('#startDate').val();
                 const endDate = $('#endDate').val();
 
-                if (!employeeId || !startDate || !endDate) {
-                    alert("Vui lòng chọn nhân viên và nhập khoảng thời gian.");
-                    return;
-                }
+                //if (!employeeId || !startDate || !endDate) {
+                //    alert("Vui lòng chọn nhân viên và nhập khoảng thời gian.");
+                //    return;
+                //}
 
-                // Gọi phương thức thống kê cho nhân viên
-                $.get('/Statistics/GetEmployeeOrderStats', { employeeId, startDate, endDate }, function (result) {
-                    if (result && result.AssignedCount !== undefined && result.DeliveredCount !== undefined) {
-                        $('#assignedOrders').html(`Số đơn đã được phân công: <span class="font-weight-bold">${result.AssignedCount}</span>`);
-                        $('#deliveredOrders').html(`Số đơn đã giao: <span class="font-weight-bold">${result.DeliveredCount}</span>`);
-                    } else {
-                        alert("Không có dữ liệu thống kê.");
-                    }
-                }).fail(function () {
-                    alert("Có lỗi xảy ra khi lấy dữ liệu. Vui lòng thử lại sau.");
-                });
+                //// Gọi phương thức thống kê cho nhân viên
+                //$.get('/Statistics/GetEmployeeOrderStats', { employeeId, startDate, endDate }, function (result) {
+                //    if (result && result.AssignedCount !== undefined && result.DeliveredCount !== undefined) {
+                //        $('#assignedOrders').html(`Số đơn đã được phân công: <span class="font-weight-bold">${result.AssignedCount}</span>`);
+                //        $('#deliveredOrders').html(`Số đơn đã giao: <span class="font-weight-bold">${result.DeliveredCount}</span>`);
+                //    } else {
+                //        alert("Không có dữ liệu thống kê.");
+                //    }
+                //}).fail(function () {
+                //    alert("Có lỗi xảy ra khi lấy dữ liệu. Vui lòng thử lại sau.");
+                //});
+
+                if (employeeId) {
+                    $.get('/Statistics/GetEmployeeOrderStats', { employeeId, startDate, endDate }, function (result) {
+                        if (result && result.AssignedCount !== undefined && result.DeliveredCount !== undefined) {
+                            $('#assignedOrders').html(`Số đơn đã được phân công: <span class="font-weight-bold">${result.AssignedCount}</span>`);
+                            $('#deliveredOrders').html(`Số đơn đã giao: <span class="font-weight-bold">${result.DeliveredCount}</span>`);
+                        } else {
+                            alert("Không có dữ liệu thống kê cho nhân viên này.");
+                        }
+                    }).fail(function () {
+                        alert("Có lỗi xảy ra khi lấy dữ liệu cho nhân viên.");
+                    });
+                } else {
+                    // Nếu không có nhân viên nào được chọn, hiển thị thống kê bằng 0
+                    $('#assignedOrders').html(`Số đơn đã được phân công: <span class="font-weight-bold">0</span>`);
+                    $('#deliveredOrders').html(`Số đơn đã giao: <span class="font-weight-bold">0</span>`);
+                }
 
                 // Cập nhật biểu đồ
                 updateAllCharts(startDate, endDate);

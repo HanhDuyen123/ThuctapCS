@@ -144,41 +144,41 @@ namespace ThuctapCS.Controllers
             }
             return Json(new { success = false });
         }
-        [CustomAuthorize("Quản lý")]
-        // GET: Orders/Assign
-        public ActionResult Assign()
-        {
-            // Lấy tất cả đơn hàng chưa được phân công
-            var assignedOrderIds = db.OrderAssignments.Select(oa => oa.order_id);
-            var unassignedOrders = db.Orders
-                                     .Where(o => !assignedOrderIds.Contains(o.order_id))
-                                     .ToList();
+        //[CustomAuthorize("Quản lý")]
+        //// GET: Orders/Assign
+        //public ActionResult Assign()
+        //{
+        //    // Lấy tất cả đơn hàng chưa được phân công
+        //    var assignedOrderIds = db.OrderAssignments.Select(oa => oa.order_id);
+        //    var unassignedOrders = db.Orders
+        //                             .Where(o => !assignedOrderIds.Contains(o.order_id))
+        //                             .ToList();
 
-            // Lấy danh sách nhân viên có vai trò "Nhân viên"
-            var employees = db.Employees
-                              .Where(e => e.role_name == "Nhân viên") 
-                              .ToList();
+        //    // Lấy danh sách nhân viên có vai trò "Nhân viên"
+        //    var employees = db.Employees
+        //                      .Where(e => e.role_name == "Nhân viên") 
+        //                      .ToList();
 
-            ViewBag.Employees = employees;
-            return View(unassignedOrders);
-        }
-        [CustomAuthorize("Quản lý")]
-        // POST: Orders/Assign
-        [HttpPost]
-        public ActionResult AssignOrder(long orderId, long employeeId)
-        {
-            var orderAssignment = new OrderAssignment
-            {
-                order_id = orderId,
-                employee_id = employeeId,
-                assigned_date = DateTime.Now
-            };
+        //    ViewBag.Employees = employees;
+        //    return View(unassignedOrders);
+        //}
+        //[CustomAuthorize("Quản lý")]
+        //// POST: Orders/Assign
+        //[HttpPost]
+        //public ActionResult AssignOrder(long orderId, long employeeId)
+        //{
+        //    var orderAssignment = new OrderAssignment
+        //    {
+        //        order_id = orderId,
+        //        employee_id = employeeId,
+        //        assigned_date = DateTime.Now
+        //    };
 
-            db.OrderAssignments.Add(orderAssignment);
-            db.SaveChanges();
+        //    db.OrderAssignments.Add(orderAssignment);
+        //    db.SaveChanges();
 
-            return RedirectToAction("Index"); // Quay lại danh sách đơn hàng
-        }
+        //    return RedirectToAction("Index"); // Quay lại danh sách đơn hàng
+        //}
 
         // GET: Orders/GetOrderDetails
         public JsonResult GetOrderDetails(long id)
@@ -242,6 +242,31 @@ namespace ThuctapCS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "order_id,customer_id,receiver_name,receiver_street,ward_id,receiver_phone,order_price,shipping_fee,warehouse_date,shipping_date,status,return_reason")] Order order)
         {
+            if (string.IsNullOrWhiteSpace(order.receiver_name))
+            {
+                ModelState.AddModelError("receiver_name", "Tên người nhận không được để trống.");
+            }
+
+            if (string.IsNullOrWhiteSpace(order.receiver_street))
+            {
+                ModelState.AddModelError("receiver_street", "Địa chỉ nhận không được để trống.");
+            }
+
+            if (string.IsNullOrWhiteSpace(order.receiver_phone))
+            {
+                ModelState.AddModelError("receiver_phone", "Số điện thoại không được để trống.");
+            }
+
+            if (order.customer_id <= 0)
+            {
+                ModelState.AddModelError("customer_id", "Khách hàng không được để trống.");
+            }
+
+            if (order.order_price <= 0)
+            {
+                ModelState.AddModelError("order_price", "Giá đơn hàng không được để trống và phải lớn hơn 0.");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Orders.Add(order);
@@ -250,7 +275,12 @@ namespace ThuctapCS.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.customer_id = new SelectList(db.Customers, "customer_id", "first_name", order.customer_id);
+            //ViewBag.customer_id = new SelectList(db.Customers, "customer_id", "first_name", order.customer_id);
+            ViewBag.customer_id = new SelectList(db.Customers.Select(c => new
+            {
+                customer_id = c.customer_id,
+                full_name = c.first_name + " " + c.last_name // Kết hợp họ và tên
+            }), "customer_id", "full_name", order.customer_id);
             ViewBag.ward_id = new SelectList(db.Wards, "ward_id", "ward_name", order.ward_id);
             return View(order);
         }

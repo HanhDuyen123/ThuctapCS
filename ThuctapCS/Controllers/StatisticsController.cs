@@ -4,6 +4,14 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using ThuctapCS.Models;
 using ThuctapCS.Filters;
+using iText.IO.Font.Constants;
+using iText.Kernel.Font;
+using iText.Kernel.Pdf;
+using iText.Layout.Element;
+using System.IO;
+using iText.Layout;
+using System.Collections.Generic;
+
 
 namespace ThuctapCS.Controllers
 {
@@ -86,8 +94,9 @@ namespace ThuctapCS.Controllers
                 query = query.Where(o => o.warehouse_date >= startDate.Value);
             if (endDate.HasValue)
                 query = query.Where(o => o.warehouse_date <= endDate.Value);
-
-            var totalRevenue = query.Sum(o => o.shipping_fee);
+            query = query.Where(o => o.status == "Delivered");
+            //var totalRevenue = query.Sum(o => o.shipping_fee);
+            var totalRevenue = query.Sum(o => (decimal?)o.shipping_fee) ?? 0;
 
             return Json(new { TotalRevenue = totalRevenue }, JsonRequestBehavior.AllowGet);
         }
@@ -136,6 +145,58 @@ namespace ThuctapCS.Controllers
 
             return Json(new { AssignedCount = assignedCount, DeliveredCount = deliveredCount }, JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult ExportToPdf(DateTime? startDate, DateTime? endDate)
+        {
+            // Lấy dữ liệu thống kê số đơn theo trạng thái
+            var orderStatusStats = GetOrderStatusStats(startDate, endDate).Data as List<dynamic>;
+            Console.WriteLine($"StartDate: {startDate}, EndDate: {endDate}");
+
+            if (orderStatusStats == null || !orderStatusStats.Any())
+            {
+                Console.WriteLine("Không có dữ liệu trong orderStatusStats.");
+                return Json(new { success = false, message = "Không có dữ liệu để xuất." }, JsonRequestBehavior.AllowGet);
+            }
+
+            using (var stream = new MemoryStream())
+            {
+                // Tạo một tài liệu PDF mới
+                var writer = new PdfWriter(stream);
+                var pdf = new PdfDocument(writer);
+                var document = new Document(pdf);
+
+                // Tạo font cho tiêu đề
+                var titleFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
+                var normalFont = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
+
+                // Thêm tiêu đề
+                document.Add(new Paragraph("Thống kê đơn hàng").SetFont(titleFont).SetFontSize(16));
+                document.Add(new Paragraph($"Thời gian: {startDate?.ToString("dd/MM/yyyy") ?? "Tất cả"} - {endDate?.ToString("dd/MM/yyyy") ?? "Tất cả"}").SetFont(normalFont).SetFontSize(12));
+                document.Add(new Paragraph(" ")); // Thêm một khoảng trắng
+
+                // Tạo bảng để hiển thị dữ liệu thống kê
+                var table = new Table(2);
+                table.AddCell("Trạng thái");
+                table.AddCell("Số lượng");
+
+                // Duyệt qua dữ liệu và thêm vào bảng
+                foreach (var stat in orderStatusStats)
+                {
+                    table.AddCell(stat.Status);
+                    table.AddCell(stat.OrderCount.ToString());
+                }
+
+                document.Add(table);
+                document.Close();
+
+                // Trả về file PDF
+                return File(stream.ToArray(), "application/pdf", "ThongKeDonHang.pdf");
+            }
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
